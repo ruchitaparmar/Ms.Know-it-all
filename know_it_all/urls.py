@@ -21,6 +21,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^sign_in/', include('signIn.urls', namespace="sign_in")),
+    url(r'^categories/', include('categories.urls', namespace="categories")),
+    url(r'^reader/', include('reader.urls', namespace="reader")),
     url(r'^login/$', auth_views.login, name='login'),
     url(r'^logout/$', auth_views.logout, name='logout')
 ]
