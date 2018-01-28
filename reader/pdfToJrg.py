@@ -24,8 +24,8 @@ def uniq(input):
 	return output
 
 
-def getResultTuple():
-	with open('test.pdf', 'rb') as fp:
+def getResultTuple(myFile):
+	with open(r'reader/pdfDoc/' + myFile, 'rb') as fp:
 		parser = PDFParser(fp)
 		doc = PDFDocument()
 		parser.set_document(doc)
@@ -35,7 +35,7 @@ def getResultTuple():
 		laparams = LAParams()
 		device = PDFPageAggregator(rsrcmgr, laparams=laparams)
 		interpreter = PDFPageInterpreter(rsrcmgr, device)
-		getText(doc, interpreter, device)
+		return getText(doc, interpreter, device)
 
 
 def getText(doc, interpreter, device):
@@ -49,8 +49,6 @@ def getText(doc, interpreter, device):
 				pages.append(lt_obj.get_text())
 				textDoc += lt_obj.get_text()
 	jargon = getJargon(pages)
-	print(jargon)
-	print(textDoc)
 	return (textDoc, jargon)
 
 
@@ -74,4 +72,4 @@ def getJargon(pages):
 
 
 if __name__ == "__main__":
-	getResultTuple()
+	getResultTuple('file.pdf')

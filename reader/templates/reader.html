@@ -1,9 +1,23 @@
-<h1>Login</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Login</button>
-</form>
+<body>
+{% block content %}
+	<p>
+		<h2>Jargon</h2> 
+		{% for j in meaning %}
+			{% if j is not False %}
+				<h4>{{j}}</h4>
+			{% endif %}
+		{% endfor %}
+	</p>
 
-<h3>Or <a href="{% url 'sign_in:register' %}">Click Here</a> To Register</h3>
+	<p><h2>Document</h2></p>
+	<p>{{text}}</p>
+{% endblock %}
+</body>
+
+</html>

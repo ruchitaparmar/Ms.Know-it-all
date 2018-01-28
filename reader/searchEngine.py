@@ -24,7 +24,7 @@ def getCourses(query, domain, showDomain=False):
 	return result
 
 
-def getMeaning(query):
+def getMeaning(query, queryInput):
 	url = 'https://www.google.co.in/search?&q='
 	url += query + '+meaning'
 	sourceHtml = fetchUrl(url)
@@ -35,9 +35,9 @@ def getMeaning(query):
 		try:
 			soup = soup.find("table", {"style": "font-size:14px;width:100%"})
 			soup = soup.find("li")
-			result = soup.text
+			result = queryInput + " : " + soup.text
 		except AttributeError:
-			result = "Not Found"
+			result = False
 	return result
 
 
@@ -47,11 +47,10 @@ def stripQuery(query):
 
 
 if __name__ == "__main__":
-	query = input("Enter search query: ")
+	queryInput = input("Enter search query: ")
 	domain = ["computer-science", "business"]
 	domain = domain[1]
-	query = stripQuery(query)
-	print("\nMeaning: " + getMeaning(query))
+	query = stripQuery(queryInput)
+	print("\nMeaning: " + getMeaning(query, queryInput))
 	print("\n\nCourses:")
 	print(getCourses(query, domain))
-# https://www.coursera.org/courses?_facet_changed_=true&domains=computer-science&languages=en&query=breadth-first+search
