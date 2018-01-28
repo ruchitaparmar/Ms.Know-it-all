@@ -21,7 +21,7 @@ def getCourses(query, domain, showDomain=False):
 		result = ["https://www.coursera.org" + i["href"] for i in soup]
 	except AttributeError:
 		result = None
-	return result
+	return result[:3]
 
 
 def getMeaning(query, queryInput):
@@ -48,9 +48,12 @@ def stripQuery(query):
 
 if __name__ == "__main__":
 	queryInput = input("Enter search query: ")
-	domain = ["computer-science", "business"]
-	domain = domain[1]
+	domain = input("Enter domain: ")
 	query = stripQuery(queryInput)
 	print("\nMeaning: " + getMeaning(query, queryInput))
+
 	print("\n\nCourses:")
-	print(getCourses(query, domain))
+	if domain == "False":
+		print(getCourses(query, domain))
+	else:
+		print(getCourses(query, domain, showDomain=True))
