@@ -39,3 +39,7 @@ def profile(request):
     # post = Post.objects.filter(user=request.user)
     # return render(request, 'sign_in/profile.html', {'user': user, 'forum': post})
     return render(request, 'sign_in/profile.html', {'user': user})
+
+
+def signInBeta(request):
+	return render(request, 'sign_in/signin.html')

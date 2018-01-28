@@ -1,0 +1,6 @@
+django
+pyenchant
+pdfminer3k
+nltk
+requests
+beautifulsoup4

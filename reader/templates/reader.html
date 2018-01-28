@@ -1,11 +1,79 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Photon by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-	<title></title>
-</head>
+	<head>
+		<title>Photon by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
 
-<body>
-{% block content %}
+		<!-- Header -->
+			<section id="header">
+				<div class="inner">
+				
+<span class="icon major fa-cloud"></span>
+					<h1>Upload a pdf or text file.</h1>
+					<p>I will look up all the jargon for you and display the glossary.</p>
+					
+				<form method="post" enctype="multipart/form-data">
+    		{% csrf_token %}
+    <input type="file" name="myfile">
+    <button class="scrolly" type="submit">Upload</button>
+  </form>
+
+
+
+
+
+<!-- 
+					<ul class="actions">
+						<li>
+						<input type="file" id="myFile">
+						</li>
+							</ul> -->
+				</div>
+			</section>
+
+<script>
+/*function myFunction() {
+    var x = document.getElementById("myFile");
+    window.alert(x.textContent);   
+}*/
+
+var input = document.getElementById("myFile");
+var output = document.getElementById("output");
+
+input.addEventListener("change", function () {
+  if (this.files && this.files[0]) {
+    var myFile = this.files[0];
+    var reader = new FileReader();
+    
+    reader.addEventListener('load', function (e) {
+      output.textContent = e.target.result;
+    });
+    
+    reader.readAsBinaryString(myFile);
+  }
+});
+
+//}
+
+</script>
+	
+		<!-- Two -->
+			<section id="two" class="main style2">
+			<div id="output"></div>
+
+			{% block content %}
 	<p>
 		<h2>Jargon</h2> 
 		{% for j in meaning %}
@@ -18,6 +86,32 @@
 	<p><h2>Document</h2></p>
 	<p>{{text}}</p>
 {% endblock %}
-</body>
 
+
+			</section>
+ 
+
+		<!-- Footer -->
+			<section id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</section>
+
+		<!-- Scripts -->
+			<script src="/static/assets/js/jquery.min.js"></script>
+			<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/static/assets/js/skel.min.js"></script>
+			<script src="/static/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/static/assets/js/main.js"></script>
+
+	</body>
 </html>
