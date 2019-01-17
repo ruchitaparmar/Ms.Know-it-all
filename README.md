@@ -15,5 +15,14 @@ for the public and scientists in any field of study to learn the definitions of 
 ### Screenshots
 
 Login Page 
-:--------:
-![](profile pics/login.png)
+![](screenshots/login.png)
+
+Home Page 
+![](screenshots/home.png)
+
+![](screenshots/home2.png)
+
+Astronomy Section
+![](screenshots/astronomy.png)
+
+
