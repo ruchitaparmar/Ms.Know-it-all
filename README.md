@@ -12,9 +12,9 @@ for the public and scientists in any field of study to learn the definitions of 
 	- If domain is entered, along with the meaning of the jargon, the application also displays MOOCs relevant to that term.
 	- Click on the upload document option and upload a pdf file. The application scans the document and displays its content along with the meanings of all the jargons present in that document. 
 	
-Use Case 
-![](screenshots/usecase.jpg)
-	
+![](screenshots/usecase.JPG)
+
+
 ### Screenshots
 
 Login Page 
